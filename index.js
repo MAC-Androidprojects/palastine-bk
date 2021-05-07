@@ -6,12 +6,15 @@ const mongoose = require("mongoose");
 const errorHandlerModule = require("./Error-handler/error-handler");
 
 //DB connection
-mongoose.connect("mongodb://127.0.0.1/palastine", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
-});
+mongoose.connect(
+  "mongodb+srv://Mohamed:palastine4ever@palastine-bk.lskqd.mongodb.net/test",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  }
+);
 
 //MiddleWares
 app.use(helmet()); //For security
