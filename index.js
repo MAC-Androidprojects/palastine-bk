@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const errorHandlerModule = require("./Error-handler/error-handler");
 
 //DB connection
-const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI || "mongodb://127.0.0.1/messages";
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -17,6 +17,7 @@ mongoose.connect(uri, {
 //MiddleWares
 app.use(helmet()); //For security
 app.use(logger("dev"));
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
