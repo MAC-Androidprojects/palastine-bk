@@ -17,7 +17,7 @@ mongoose.connect(uri, {
 
 //MiddleWares
 app.use(cors());
-app.use(helmet()); //For security
+app.use(helmet());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
