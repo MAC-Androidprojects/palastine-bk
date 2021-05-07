@@ -4,6 +4,7 @@ const app = express();
 const helmet = require("helmet");
 const mongoose = require("mongoose");
 const errorHandlerModule = require("./Error-handler/error-handler");
+const cors = require("cors");
 
 //DB connection
 const uri = process.env.MONGODB_URI || "mongodb://127.0.0.1/messages";
@@ -15,6 +16,7 @@ mongoose.connect(uri, {
 });
 
 //MiddleWares
+app.use(cors());
 app.use(helmet()); //For security
 app.use(logger("dev"));
 app.use(express.json());
