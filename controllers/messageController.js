@@ -12,7 +12,6 @@ module.exports = {
   postMessage: async (req, res, next) => {
     const message = await Message.create({
       name: req.body.name,
-      email: req.body.email,
       content: req.body.content,
     });
     res.status(200).json(message);
