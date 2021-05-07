@@ -28,6 +28,6 @@ app.use(errorHandlerModule.errorHandler);
 
 //Listening on port
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, (req, res) => {
+app.listen(process.env.PORT, (req, res) => {
   console.log(`Server started its mission on port ${PORT}`);
 });
