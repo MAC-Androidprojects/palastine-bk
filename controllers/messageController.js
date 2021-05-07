@@ -3,7 +3,7 @@ const Message = require("../models/Messages");
 module.exports = {
   getPublishedMessages: async (req, res, next) => {
     const messages = await Message.find({ isPublished: true });
-    res.body(messages);
+    res.status(200).send(messages);
   },
   getUnpublishedMessages: async (req, res, next) => {
     const messages = await Message.find({ isPublished: false });
