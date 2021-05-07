@@ -18,6 +18,10 @@ mongoose.connect(uri, {
 app.use(helmet()); //For security
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 //Routes
 const messageRouter = require("./routes/messageRouter");
