@@ -14,12 +14,17 @@ module.exports = {
       name: req.body.name,
       content: req.body.content,
     });
-    res.status(200).json(message);
+    res.status(201).json(message);
   },
   acceptMessage: async (req, res, next) => {
     const user = await Message.findByIdAndUpdate(req.body.id, {
       isPublished: true,
     });
     res.status(200).json(user);
+  },
+  deleteOne: async (req, res, next) => {
+    const id = req.body.id;
+    const response = await Message.findByIdAndDelete(id);
+    res.status(202).json(response);
   },
 };

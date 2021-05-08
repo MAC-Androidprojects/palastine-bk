@@ -10,5 +10,7 @@ app
 app
   .route("/unpublished")
   .get(messageController.getUnpublishedMessages)
-  .patch(messageController.acceptMessage);
+  .patch(messageController.acceptMessage)
+  .delete(messageController.deleteOne);
+
 module.exports = app;
